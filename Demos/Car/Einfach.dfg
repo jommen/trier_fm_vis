@@ -1,0 +1,37 @@
+begin_problem(Problem).
+list_of_descriptions.
+name({* None *}).
+author({* None *}).
+status(unknown).
+description({* None *}).
+end_of_list.
+
+list_of_symbols.
+predicates[(Auto,0),(Karosserie,0),(Limousine,0),(Kombi,0),(SUV,0),(Motor,0),(Benzin,0),(310PS,0),(Diesel,0),(204PS,0),(245PS,0),(313PS,0),(Exterieur,0),(Farbe,0),(Schwarz,0),(Rot,0),(Silber,0),(Felgen,0),(18Zoll,0),(19Zoll,0),(20Zoll,0),(Ausstattung,0),(Einfach,0),(Komplett,0),(Interieur,0),(Sitzbezug,0),(Stoff,0),(Leder,0),(Lenkrad,0),(Lederlenkrad,0),(Hartplastik,0)].
+end_of_list.
+
+list_of_formulae(axioms).
+formula(not(and(Einfach,Leder))).
+formula(not(and(Hartplastik,Leder))).
+formula(not(and(Kombi,313PS))).
+formula(implies(SUV,Diesel)).
+formula(implies(Einfach,Schwarz)).
+formula(implies(Schwarz,Leder)).
+formula(Auto).
+formula(and(equiv(Auto, Karosserie),equiv(Auto, Motor),implies(Exterieur, Auto),implies(Interieur, Auto))).
+formula(and(equiv(Limousine,and(not(Kombi),not(SUV),Karosserie)),equiv(Kombi,and(not(Limousine),not(SUV),Karosserie)),equiv(SUV,and(not(Limousine),not(Kombi),Karosserie)))).
+formula(and(equiv(Benzin,and(not(Diesel),Motor)),equiv(Diesel,and(not(Benzin),Motor)))).
+formula(and(equiv(310PS,and(Benzin)))).
+formula(and(equiv(204PS,and(not(245PS),not(313PS),Diesel)),equiv(245PS,and(not(204PS),not(313PS),Diesel)),equiv(313PS,and(not(204PS),not(245PS),Diesel)))).
+formula(equiv(Exterieur,or(Farbe,Felgen,Ausstattung))).
+formula(and(equiv(Schwarz,and(not(Rot),not(Silber),Farbe)),equiv(Rot,and(not(Schwarz),not(Silber),Farbe)),equiv(Silber,and(not(Schwarz),not(Rot),Farbe)))).
+formula(and(equiv(18Zoll,and(not(19Zoll),not(20Zoll),Felgen)),equiv(19Zoll,and(not(18Zoll),not(20Zoll),Felgen)),equiv(20Zoll,and(not(18Zoll),not(19Zoll),Felgen)))).
+formula(and(equiv(Einfach,and(not(Komplett),Ausstattung)),equiv(Komplett,and(not(Einfach),Ausstattung)))).
+formula(equiv(Interieur,or(Sitzbezug,Lenkrad))).
+formula(and(equiv(Stoff,and(not(Leder),Sitzbezug)),equiv(Leder,and(not(Stoff),Sitzbezug)))).
+formula(and(equiv(Lederlenkrad,and(not(Hartplastik),Lenkrad)),equiv(Hartplastik,and(not(Lederlenkrad),Lenkrad)))).
+formula(Einfach).
+end_of_list.
+
+end_problem.
+

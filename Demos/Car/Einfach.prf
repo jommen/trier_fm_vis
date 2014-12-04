@@ -1,0 +1,150 @@
+
+--------------------------SPASS-START-----------------------------
+Input Problem:
+1[0:Inp] ||  -> Auto*.
+2[0:Inp] ||  -> Einfach*.
+3[0:Inp] || SUV -> Diesel*.
+4[0:Inp] || Einfach* -> Schwarz.
+5[0:Inp] || Schwarz -> Leder*.
+6[0:Inp] || Auto -> Karosserie*.
+7[0:Inp] || Karosserie* -> Auto.
+8[0:Inp] || Auto -> Motor*.
+9[0:Inp] || Motor* -> Auto.
+10[0:Inp] || Exterieur -> Auto*.
+11[0:Inp] || Interieur -> Auto*.
+12[0:Inp] || Limousine* -> Karosserie.
+13[0:Inp] || Kombi* -> Karosserie.
+14[0:Inp] || SUV* -> Karosserie.
+15[0:Inp] || Benzin* -> Motor.
+16[0:Inp] || Diesel* -> Motor.
+17[0:Inp] || 310PS* -> Benzin.
+18[0:Inp] || Benzin -> 310PS*.
+19[0:Inp] || 204PS* -> Diesel.
+20[0:Inp] || 245PS* -> Diesel.
+21[0:Inp] || 313PS* -> Diesel.
+22[0:Inp] || Farbe* -> Exterieur.
+23[0:Inp] || Felgen* -> Exterieur.
+24[0:Inp] || Ausstattung* -> Exterieur.
+25[0:Inp] || Schwarz* -> Farbe.
+26[0:Inp] || Rot* -> Farbe.
+27[0:Inp] || Silber* -> Farbe.
+28[0:Inp] || 18Zoll* -> Felgen.
+29[0:Inp] || 19Zoll* -> Felgen.
+30[0:Inp] || 20Zoll* -> Felgen.
+31[0:Inp] || Einfach* -> Ausstattung.
+32[0:Inp] || Komplett* -> Ausstattung.
+33[0:Inp] || Sitzbezug* -> Interieur.
+34[0:Inp] || Lenkrad* -> Interieur.
+35[0:Inp] || Stoff* -> Sitzbezug.
+36[0:Inp] || Leder* -> Sitzbezug.
+37[0:Inp] || Lederlenkrad* -> Lenkrad.
+38[0:Inp] || Hartplastik* -> Lenkrad.
+39[0:Inp] || Einfach Leder* -> .
+40[0:Inp] || Hartplastik* Leder -> .
+41[0:Inp] || Kombi 313PS* -> .
+42[0:Inp] || Kombi* Limousine -> .
+43[0:Inp] || SUV* Limousine -> .
+44[0:Inp] || SUV* Kombi -> .
+45[0:Inp] || Diesel* Benzin -> .
+46[0:Inp] || Motor -> Diesel* Benzin.
+47[0:Inp] || 245PS* 204PS -> .
+48[0:Inp] || 313PS* 204PS -> .
+49[0:Inp] || 313PS* 245PS -> .
+50[0:Inp] || Rot* Schwarz -> .
+51[0:Inp] || Silber* Schwarz -> .
+52[0:Inp] || Silber* Rot -> .
+53[0:Inp] || 19Zoll* 18Zoll -> .
+54[0:Inp] || 20Zoll* 18Zoll -> .
+55[0:Inp] || 20Zoll* 19Zoll -> .
+56[0:Inp] || Komplett* Einfach -> .
+57[0:Inp] || Ausstattung -> Komplett* Einfach.
+58[0:Inp] || Interieur -> Sitzbezug Lenkrad*.
+59[0:Inp] || Leder* Stoff -> .
+60[0:Inp] || Sitzbezug -> Leder* Stoff.
+61[0:Inp] || Hartplastik* Lederlenkrad -> .
+62[0:Inp] || Lenkrad -> Hartplastik* Lederlenkrad.
+63[0:Inp] || Karosserie -> Kombi SUV* Limousine.
+64[0:Inp] || Diesel -> 245PS 313PS* 204PS.
+65[0:Inp] || Exterieur -> Farbe Felgen Ausstattung*.
+66[0:Inp] || Farbe -> Rot Silber* Schwarz.
+67[0:Inp] || Felgen -> 19Zoll 20Zoll* 18Zoll.
+ This is a propositional Non-Horn problem.
+ Axiom clauses: 67 Conjecture clauses: 0
+ Inferences: 
+ Reductions: RFMRR=1 RBMRR=1 RObv=1 RUnC=1 RTaut=1 RFSub=1 RBSub=1 
+ Extras    : Input Saturation, Always Selection, Full Splitting, Full Reduction,  Ratio: 5, FuncWeight: 1, VarWeight: 1
+ Precedence: 313PS > 245PS > 204PS > Diesel > 310PS > Benzin > Motor > SUV > Kombi > Limousine > Karosserie > Auto > Hartplastik > Lederlenkrad > Lenkrad > Leder > Stoff > Sitzbezug > Interieur > Komplett > Einfach > Ausstattung > 20Zoll > 19Zoll > 18Zoll > Felgen > Silber > Rot > Schwarz > Farbe > Exterieur
+ Ordering  : KBO
+Processed Problem:
+
+Worked Off Clauses:
+
+Usable Clauses:
+2[0:Inp] ||  -> Einfach*.
+1[0:Inp] ||  -> Auto*.
+70[0:MRR:8.0,1.0] ||  -> Motor*.
+74[0:MRR:5.0,72.0] ||  -> Leder*.
+75[0:MRR:36.0,74.0] ||  -> Sitzbezug*.
+76[0:MRR:33.0,75.0] ||  -> Interieur*.
+68[0:MRR:31.0,2.0] ||  -> Ausstattung*.
+69[0:MRR:24.0,68.0] ||  -> Exterieur*.
+71[0:MRR:6.0,1.0] ||  -> Karosserie*.
+72[0:MRR:4.0,2.0] ||  -> Schwarz*.
+73[0:MRR:25.0,72.0] ||  -> Farbe*.
+81[0:MRR:46.0,70.0] ||  -> Benzin Diesel*.
+77[0:MRR:59.0,74.0] || Stoff* -> .
+78[0:MRR:56.1,2.0] || Komplett* -> .
+82[0:MRR:40.1,74.0] || Hartplastik* -> .
+79[0:MRR:51.1,72.0] || Silber* -> .
+80[0:MRR:50.1,72.0] || Rot* -> .
+37[0:Inp] || Lederlenkrad* -> Lenkrad.
+83[0:MRR:62.1,82.0] || Lenkrad -> Lederlenkrad*.
+18[0:Inp] || Benzin -> 310PS*.
+17[0:Inp] || 310PS* -> Benzin.
+30[0:Inp] || 20Zoll* -> Felgen.
+29[0:Inp] || 19Zoll* -> Felgen.
+28[0:Inp] || 18Zoll* -> Felgen.
+20[0:Inp] || 245PS* -> Diesel.
+19[0:Inp] || 204PS* -> Diesel.
+3[0:Inp] || SUV -> Diesel*.
+21[0:Inp] || 313PS* -> Diesel.
+43[0:Inp] || Limousine SUV* -> .
+42[0:Inp] || Limousine Kombi* -> .
+55[0:Inp] || 19Zoll 20Zoll* -> .
+54[0:Inp] || 18Zoll 20Zoll* -> .
+53[0:Inp] || 18Zoll 19Zoll* -> .
+47[0:Inp] || 204PS 245PS* -> .
+44[0:Inp] || Kombi SUV* -> .
+41[0:Inp] || 313PS* Kombi -> .
+49[0:Inp] || 245PS 313PS* -> .
+48[0:Inp] || 204PS 313PS* -> .
+45[0:Inp] || Benzin Diesel* -> .
+66[0:Inp] || Farbe -> Schwarz Silber* Rot.
+65[0:Inp] || Exterieur -> Ausstattung* Felgen Farbe.
+63[0:Inp] || Karosserie -> Limousine SUV* Kombi.
+67[0:Inp] || Felgen -> 18Zoll 20Zoll* 19Zoll.
+64[0:Inp] || Diesel -> 204PS 313PS* 245PS.
+SPASS V 3.7 
+SPASS beiseite: Proof found.
+Problem: C:\Users\JuergenOmmen\Desktop\Car.dfg 
+SPASS derived 5 clauses, backtracked 0 clauses, performed 0 splits and kept 58 clauses.
+SPASS allocated 26968 KBytes.
+SPASS spent	0:00:00.22 on the problem.
+		0:00:00.06 for the input.
+		0:00:00.00 for the FLOTTER CNF translation.
+		0:00:00.00 for inferences.
+		0:00:00.00 for the backtracking.
+		0:00:00.00 for the reduction.
+
+
+Here is a proof with depth 0, length 7 :
+2[0:Inp] ||  -> Einfach*.
+4[0:Inp] || Einfach* -> Schwarz.
+5[0:Inp] || Schwarz -> Leder*.
+39[0:Inp] || Einfach Leder* -> .
+72[0:MRR:4.0,2.0] ||  -> Schwarz*.
+74[0:MRR:5.0,72.0] ||  -> Leder*.
+84[0:MRR:39.0,39.1,2.0,74.0] ||  -> .
+Formulae used in the proof : axiom19 axiom4 axiom5 axiom0
+
+--------------------------SPASS-STOP------------------------------

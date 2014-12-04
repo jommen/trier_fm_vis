@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<complexConstraints xmlns="complexConstraints"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="complexConstraints complexConstraints.xsd">
+	<implies>
+		<and>
+			<node>Z</node>
+			<node>Y</node> 
+			<or>
+				<node>A</node>
+				<node negate="true">B</node>
+			</or>
+		</and>
+		<or negate="true">
+			<node>C</node>
+			<node>D</node>
+		</or>
+	</implies>
+</complexConstraints>

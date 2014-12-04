@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="complexConstraints" 
+	xmlns:tns="complexConstraints" 
+	elementFormDefault="qualified">
+	
+	<!-- ROOT-Element -->	
+	<xsd:element name="complexConstraints" id="complexConstraints"> 
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="implies" type="tns:constraintGroup" minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element name="excludes" type="tns:constraintGroup" minOccurs="0" maxOccurs="unbounded" />
+			</xsd:sequence>
+		</xsd:complexType> 
+	</xsd:element>
+	
+	<!-- Andere Elemente -->	
+	<xsd:complexType name="constraintGroup" mixed="true">
+		<xsd:sequence minOccurs="1">
+			<xsd:element name="node" type="tns:node" minOccurs="0" maxOccurs="unbounded" />
+			<xsd:element name="and" type="tns:constraint" minOccurs="0" maxOccurs="unbounded" />
+			<xsd:element name="or" type="tns:constraint" minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="constraint" mixed="true">
+		<xsd:sequence minOccurs="1">
+			<xsd:element name="node" type="tns:node" minOccurs="0" maxOccurs="unbounded" />
+			<xsd:element name="and" type="tns:constraint" minOccurs="0" maxOccurs="unbounded" />
+			<xsd:element name="or" type="tns:constraint" minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:attribute name="negate" type="xsd:boolean" />
+	</xsd:complexType>
+	
+	<xsd:complexType name="node">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="negate" type="xsd:boolean" />
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	
+</xsd:schema>
