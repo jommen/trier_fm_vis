@@ -53,55 +53,8 @@ public class FeatureDiagramToolTipControl extends ControlAdapter {
 	}
 
 	private LinkedHashMap<String, String> getNodeInfos(final NodeItem node) {
-		final int currentDepth = node.getDepth();
-		final int maxDepth = Toolbox.getMaxDepth(node); // of whole Tree!!!!!!
-
-		int maxPartTree = 0;
-		int lastVisible = 0;
-		int lastFullLevel = 0;
-
-		final int selDepth = node.getDepth();
-		final int correctionVal = selDepth; // nur zum Test, damit kurzfristig
-											// auf Absulutwerte geschaltet
-											// werden kann (= 0)
-
-		final LinkedList<NodeItem> collapseNodes = Toolbox.getCollapseNodes(node);
-		final LinkedList<NodeItem> expandNodes = Toolbox.getExpandNodes(node);
-
-		if (collapseNodes.isEmpty()) {
-			if (expandNodes.isEmpty()) {
-				// beide null --> Blatt
-			}
-			else {
-				// nur collapse null -> vollständig eingeklappter Knoten
-				maxPartTree = maxDepth - correctionVal;
-				lastFullLevel = selDepth - correctionVal;
-				lastVisible = selDepth - correctionVal;
-			}
-		}
-		else { // collapse hat wert
-			if (expandNodes.isEmpty()) {
-				// nur expand null -> Teilbaum vollständig ausgeklappt
-				maxPartTree = maxDepth - correctionVal;
-				lastFullLevel = collapseNodes.getFirst().getDepth() + 1 - correctionVal;
-				lastVisible = collapseNodes.getFirst().getDepth() + 1 - correctionVal;
-
-			}
-			else { // beide haben werte -> in der Mitte irgendwo
-				maxPartTree = maxDepth - correctionVal;
-				lastFullLevel = expandNodes.getFirst().getDepth() - correctionVal;
-				lastVisible = collapseNodes.getFirst().getDepth() + 1 - correctionVal;
-
-			}
-
-		}
-
 		final LinkedHashMap<String, String> nodeInfos = new LinkedHashMap<String, String>();
 		nodeInfos.put("Name", NodeLib.getName(node));
-		nodeInfos.put("Akt. Level", String.valueOf(currentDepth));
-		nodeInfos.put("Letztes volles Level", String.valueOf(lastFullLevel));
-		nodeInfos.put("Letztes sichtb. Level", String.valueOf(lastVisible));
-		nodeInfos.put("Max. Tiefe", String.valueOf(maxPartTree));
 		nodeInfos.put("DOI", String.valueOf(node.getDOI()));
 
 		return nodeInfos;
